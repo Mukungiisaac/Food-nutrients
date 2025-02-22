@@ -36,6 +36,7 @@ body {
     background-color: #3a3b3c;
 }
 
+
 .chat-container {
     flex: 1;
     display: flex;
@@ -43,10 +44,9 @@ body {
     background-color: white;
     border-left: 1px solid #ccc;
 }
-
 .chat-header {
     background-color: #ffffff;
-    padding: 15px;
+    padding: 0px;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
@@ -61,8 +61,46 @@ body {
     flex-direction: column;
 }
 
+/* Message Styles */
+.message {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+    margin: 5px;
+}
+
+/* User messages aligned to the right */
+.user-message {
+    background-color: #f1f1f1;
+    color: black;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+    text-align: right;
+}
+
+/* Bot messages aligned to the left */
+.bot-message {
+    background-color: #f1f1f1;
+    color: black;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+    text-align: center;
+}
+
+/* Image inside messages */
+.chat-image {
+    max-width: 200px; 
+    max-height: 200px; 
+    border-radius: 8px;
+    object-fit: contain; /* Prevents distortion */
+    display: block;
+}
+
+/* Chat input styling */
 .chat-input {
     display: flex;
+    align-items: center;
     padding: 10px;
     border-top: 1px solid #ccc;
     background-color: #ffffff;
@@ -73,10 +111,6 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-}
-
-.chat-input input[type="file"] {
-    margin-left: 10px;
 }
 
 .chat-input button {
@@ -91,71 +125,4 @@ body {
 
 .chat-input button:hover {
     background-color: #0056b3;
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-    .chat-container {
-        border-left: none;
-    }
-}
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        width: 100%;
-        text-align: center;
-        padding: 10px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        background: #2C3E50;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .sidebar h2 {
-        display: none;
-    }
-
-    .sidebar ul {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-    }
-
-    .sidebar ul li {
-        flex: 1;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .chat-container {
-        width: 100%;
-        height: calc(100vh - 50px);
-        margin: 0;
-    }
-
-    .chat-box {
-        padding: 10px;
-    }
-
-    .chat-input {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .chat-input input[type="text"] {
-        width: 100%;
-    }
-
-    .chat-input button {
-        width: 100%;
-        font-size: 16px;
-    }
 }
